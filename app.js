@@ -45,3 +45,37 @@ function toggleDarkMode() {
     */
     document.querySelector('body').classList.toggle("dark-theme")
 }
+/**
+ * **********  PROMISES  ***********
+ */
+/** "Fetching" is how you ACESS DATA 
+ * from the BACKEND SERVER
+ */
+
+// ******fetch('https://jsonplaceholder.typicode.com/users')*****
+
+/**AFter accessing, 
+ * now you need to UNLOCK
+ * You do this 2 ways:
+ *  * 1. THEN method
+ *  * 2. ASYNC/AWAIT method 
+ * */
+// THEN method:
+const emailRef = document.querySelector('.email');
+console.log(emailRef)
+fetch('https://jsonplaceholder.typicode.com/users').then(response => {
+    /**
+     *  Inside Callback, use ".json" to
+     * CONVERT to FRONTEND
+     * Then you use ANOTHER CALLBACK:
+     *  */ 
+    /**
+     *  Printing SINGLE ELEMENT in API
+     * THis is what the EMAILREF is for:
+     */
+    console.log(response.json().then(data => {
+        console.log(data)
+        emailRef.innerHTML = data.name
+    }))
+})
+// TIME STAMP: 8:47
