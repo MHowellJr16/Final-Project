@@ -13,22 +13,35 @@ console.log(document.querySelector('#title'))
  */
 document.getElementById('title')
 console.log(document.getElementById('title'))
-// INNER HTML
+/**  INNER HTML
 document.querySelector('#title').innerHTML = "FrontEnd Simplified"
-// Can also ADD to HTML:
+ Can also ADD to HTML:
 document.querySelector('#title').innerHTML += "House of Prayer"
+
+*/
 /**Can also ADD to CSS:
  * ".STYLE" Property
- */
+ 
 document.querySelector('#title').style.color = 'red'
 document.querySelector('#title').style.fontSize = '50px'
 /**************CLICK LISTENERS ***************** 
  * To do this you must first DECLARE A FUNCTION:
-*/
+
 function changeTitleToRed() {
     // Making sure its CLICKED
     console.log('clicked') 
 }
 function changeTitleToBlue() {
     document.querySelector('#title').style.color = "blue"
+}
+(*********BE CARFEUL**********)
+THIS CAN ALTER HTML AND CSS in CODE
+*/
+// Dark Theme:
+function toggleDarkMode() {
+    /********IMPORTANT*******
+     * "classList and TOGGLE
+     * ".toggle" is how you access CLASSES
+    */
+    document.querySelector('body').classList.toggle("dark-theme")
 }
