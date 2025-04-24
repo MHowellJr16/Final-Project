@@ -117,3 +117,60 @@ async function main() {
 // Then CALL function as usual:
 main()
 // TIME STAMP: 16:02
+/**
+ * *************CREATING A PROMISE****************
+ */
+// How you DISPLAY code ON WEBPAGE
+// Have to DECLARE VARIABLE that LINKS to JS
+const statusRef = document.querySelector(".status")
+const videoREf = document.querySelector(".video")
+function getSubsrciptionStatus() {
+    /**Inside Promise callback,
+     * write 'RESOLVE' and 'REJECT'
+     * Resolve is for if something is SUCCESSFUL
+     * Reject is for NONAPPLICABLE(I.E. EVERYTHING ELSE)
+     */
+    return new Promise((resolve, reject) => {
+        resolve("VIP")
+    })
+}
+// You then use Async/Await or Then to UNLOCK PROMISE:
+// 1. THEN METOD:
+// getSubsrciptionStatus().then(response => console.log(response))
+// 2. ASYNC/AWAIT METHOD:
+/** 
+async function mainFunction(params) {
+    const status = await getSubsrciptionStatus()
+    statusRef.innerHTML = status
+    console.log(await getVideo(status))
+}
+mainFunction()
+*/
+// Video Challenge
+function getVideo(subscriptionStatus) {
+    return new Promise((resolve, reject) => {
+        if (subscriptionStatus === "VIP") {
+            resolve("Show Video")
+        }
+        else if (subscriptionStatus === "FREE"){
+            resolve("Show Trailer")
+        }
+        else {
+            reject("no Video")
+        }
+    })
+}
+
+async function mainFunction(params) {
+    const status = await getSubsrciptionStatus()
+    status.innerHTML = status
+    try {
+        console.log(await getVideo(status))
+    }
+    catch(e) {
+        console.log(e)
+        videoREf.innerHTML = e
+    }
+}
+mainFunction()
+// TIME STAMP: 27:32
